@@ -109,6 +109,10 @@ int main(void) {
     Delete this comment and write your code here.
     
     */
+    HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+    HAL_Delay(500);
+    HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+    HAL_Delay(500);
 
     /* USER CODE BEGIN 3 */
   }
