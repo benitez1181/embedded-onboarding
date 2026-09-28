@@ -1,0 +1,14 @@
+matrix_t matrix_transpose(matrix_t m) {
+    matrix_t mt = create_matrix(m.cols, m.rows); //<- assume this has been implemented
+
+    for (int i = 0; i < m.rows; ++i) {
+        for (int j = 0; j < m.cols; ++j) {
+            mt.data[j * m.rows + i] = m.data[i * m.cols + j];
+        }
+    }
+
+    return mt;
+}
+
+Instead of copying the entire matrix into the function, I would instead use a int pointer parameter.
+Reduces the amount of memory taken up in the stack.
