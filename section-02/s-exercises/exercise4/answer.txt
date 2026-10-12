@@ -1,0 +1,11 @@
+Secret Message: flag{arm_nm_gdb_master}
+
+objdump -h vault.elf  <= List section headers (.text,.data)
+
+nm -C vault.elf | grep -i -E 'secret|flag|key|msg' <=  Search for the keywords 'secret', 'flag', 'key', and 'msg' in nm -C
+which returns global variables, static variables, and functions
+
+objdump -s -j .data vault.elf <= Shows the raw hexadecimal contents in the .data section
+
+objdump -s -j .rdata --start-address=0x14000a000 --stop-address=0x14000a040 vault.elf <= extracs the raw information 
+that's in the .rdata(read-only data) section from 0x14000a000 to 0x14000a040

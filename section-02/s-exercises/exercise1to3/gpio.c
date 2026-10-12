@@ -1,7 +1,8 @@
 #include "gpio.h"
 #include "rcc.h"
 
-#define GPIO_PORT(n) (PORT *)((n*0x3FF) + 0x4001'0800)
+#define PORT_BASE 0x4001'0800
+#define GPIO_PORT(n) (PORT *)((n*0x3FF) + PORT_BASE)
 #define PORT_CLK_MASK(n) (1U << (n+2))
 #define PIN_MASK(n) (1U << )
 
