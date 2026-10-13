@@ -216,14 +216,15 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXIT_Callback(uint16_t GPIO_Pin){
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_13){
 		static int last_time = 0;
 		int current_time = HAL_GetTick();
 
-		if((current_time - last_time) > 50)
+		if((current_time - last_time) > 50){
 			HAL_GPIO_TogglePin(LD_GPIO_PORT, LDE_PIN);
 			last_time = current_time;
+		}
 	}
 }
 /* USER CODE END 4 */
